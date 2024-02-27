@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Step 1: Run the Ubuntu container
-container_id=$(docker run -dit --name ubuntu1 --expose 22 ubuntu)
+container_id=$(docker run -dit --name ubuntu10 --expose 22 ubuntu)
 
 # Step 2: Install OpenSSH server
 docker exec $container_id apt update
