@@ -17,11 +17,8 @@ docker exec $CONTAINER_ID useradd nadia -G _ssh
 # Step 5: Retrieve container IP address
 CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $CONTAINER_ID)
 
-# Step 6: SSH into the container as root to set nadia's password
-ssh root@$CONTAINER_IP
-
-# Step 7: Set password for 'nadia'
-docker exec -it $CONTAINER_ID passwd nadia
+# step 6: setting password for nadia
+docker exec -it $CONTAINER_ID bash -c 'echo "nadia:your_password" | chpasswd'
 
 # Step 8: Exit from SSH session
 exit
