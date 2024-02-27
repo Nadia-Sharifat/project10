@@ -20,9 +20,6 @@ CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddres
 # step 6: setting password for nadia
 docker exec -it $CONTAINER_ID bash -c 'echo "nadia:your_password" | chpasswd'
 
-# Step 8: Exit from SSH session
-exit
-
 # Step 9: SSH into the container as 'nadia'
 ssh nadia@$CONTAINER_IP
 
